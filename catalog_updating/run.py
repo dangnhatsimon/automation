@@ -24,7 +24,7 @@ for txt in os.listdir(txt_dir):
         for img in os.listdir(img_dir):
             if os.path.splitext(txt)[0] == os.path.splitext(img)[0]:
                 data['image_name']=img
-        response=requests.post('http://35.223.149.98/fruits/',data=data)
+        response=requests.post('http://localhost/fruits/',data=data)
         if not response.ok:
             raise Exception("GET failed with status code {}".format(response.status_code))
         

@@ -25,7 +25,7 @@ if (du.free/du.total)*100 <error_disk_space:
     message=emails.generate_error_report(sender,receiver,subject,body)
     emails.send_email(message)
 
-if du.free<(error_free_memory*1000000):
+if du.free<(error_free_memory*1024*1024):
     subject= 'Error - Available memory is less than 500MB'
     message=emails.generate_error_report(sender,receiver,subject,body)
     emails.send_email(message)

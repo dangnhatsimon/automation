@@ -9,14 +9,14 @@ txt_dir='supplier-data/descriptions'
 
 def getformat(dir,txt):
     with open(os.path.join(dir,txt),'r') as t:
-        content=t.readlines
+        content=t.read().strip().splitlines()
     name='name: {}'.format(content[0])
     weight='weight: {}'.format(content[1])
-    return '{}<br\>{}<br\>'.format(name, weight)
+    return '{}<br/>{}<br/><br/>'.format(name, weight)
 
 if __name__ == "__main__":
     report='/tmp/processed.pdf'
-    today=date.today().strftime('%d-%m-%Y')
+    today=date.today().strftime('%B %d, %Y')
     title='Processed Update on {}'.format(today)
     paragraph=''
     for txt in os.listdir(txt_dir):
